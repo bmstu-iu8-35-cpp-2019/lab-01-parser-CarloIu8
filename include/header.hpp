@@ -8,11 +8,7 @@
 #include <string>
 #include <vector>
 
-std::string copy_figure_skobka(
-    const std::string& s,
-    size_t& index)  //Копирование куска строки от символа с номером index до
-                    //такого-же закрывающего символа
-{
+std::string copy_figure_skobka(const std::string& s, size_t& index) {
   std::string x;
   size_t k = 1;
   index++;
@@ -32,11 +28,7 @@ std::string copy_figure_skobka(
   return x;
 }
 
-std::string copy_chislo(
-    const std::string& s,
-    size_t& index)  //Копирование куска строки от символа с номером index до
-                    //такого-же закрывающего символа
-{
+std::string copy_chislo(const std::string& s, size_t& index) {
   std::string x;
   size_t k = 1;
   while (s[index] > 47 && s[index] < 58) {
@@ -46,11 +38,7 @@ std::string copy_chislo(
   return x;
 }
 
-std::string copy_kavichki(
-    const std::string& s,
-    size_t& index)  //Копирование куска строки от символа с номером index до
-                    //такого-же закрывающего символа
-{
+std::string copy_kavichki(const std::string& s, size_t& index) {
   std::string x;
   size_t k = 1;
   index++;
@@ -66,11 +54,7 @@ std::string copy_kavichki(
   return x;
 }
 
-std::string copy_kvadrat_skobka(
-    const std::string& s,
-    size_t& index)  //Копирование куска строки от символа с номером index до
-                    //такого-же закрывающего символа
-{
+std::string copy_kvadrat_skobka(const std::string& s, size_t& index) {
   std::string x;
   size_t k = 1;
   index++;
@@ -174,8 +158,7 @@ class Json {
     }
     return a;
   }
-  // Конструктор из строки, содержащей Json-данные.
-  Json(const std::string& s) {
+  explicit Json(const std::string& s) {
     if (s[0] == '{') {
       std::string x;
       std::string info;
@@ -263,30 +246,17 @@ class Json {
                   std::cout << any_cast<int>(ar[i]);
           }
   }*/
-  // Метод возвращает true, если данный экземпляр содержит в себе JSON-массив.
-  // Иначе false.
+
   bool is_array() const { return ar.size(); }
-  // Метод возвращает true, если данный экземпляр содержит в себе JSON-объект.
-  // Иначе false.
+
   bool is_object() const { return data.size(); }
 
-  // Метод возвращает значение по ключу key, если экземпляр является
-  // JSON-объектом. Значение может иметь один из следующих типов: Json,
-  // std::string, double, bool или быть пустым. Если экземпляр является
-  // JSON-массивом, генерируется исключение.
   std::any& operator[](const std::string& key) { return data[key]; }
 
-  // Метод возвращает значение по индексу index, если экземпляр является
-  // JSON-массивом. Значение может иметь один из следующих типов: Json,
-  // std::string, double, bool или быть пустым. Если экземпляр является
-  // JSON-объектом, генерируется исключение.
   std::any& operator[](int index) { return ar[index]; }
-  // Метод возвращает объект класса Json из строки, содержащей Json-данные.
+
   static Json parse(const std::string& s) { return Json(s); }
 
-  // Метод возвращает объекта класса Json из файла, содержащего Json-данные в
-  // текстовом формате.
-  // static Json parseFile(const std::string& path_to_file);
  private:
   std::map<std::string, std::any> data;
   std::vector<std::any> ar;
