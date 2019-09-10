@@ -18,7 +18,7 @@ TEST(circuits, first) {
   EXPECT_EQ(std::any_cast<int>(std::any_cast<Json>(a["marks"])[3]), 5);
   EXPECT_EQ(std::any_cast<int>(std::any_cast<Json>(a["marks"])[4]), 2);
   EXPECT_EQ(std::any_cast<int>(std::any_cast<Json>(a["marks"])[5]), 3);
-  EXPECT_EQ(std::any_cast<string>(std::any_cast<std::string>(
+  EXPECT_EQ(std::any_cast<std::string>(std::any_cast<std::string>(
                 std::any_cast<Json>(a["address"])["city"])),
             "Moscow");
 }
