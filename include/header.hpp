@@ -30,7 +30,6 @@ std::string copy_figure_skobka(const std::string& s, size_t& index) {
 
 std::string copy_chislo(const std::string& s, size_t& index) {
   std::string x;
-  size_t k = 1;
   while (s[index] > 47 && s[index] < 58) {
     x += s[index];
     index++;
@@ -40,7 +39,6 @@ std::string copy_chislo(const std::string& s, size_t& index) {
 
 std::string copy_kavichki(const std::string& s, size_t& index) {
   std::string x;
-  size_t k = 1;
   index++;
   bool flag = true;
   while (flag) {
