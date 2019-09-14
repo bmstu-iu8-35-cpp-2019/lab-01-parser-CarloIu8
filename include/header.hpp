@@ -10,7 +10,6 @@
 #include <string>
 #include <vector>
 
-using namespace std;
 std::string copy_figure_skobka(const std::string& s, size_t& index) {
   std::string x;
   size_t k = 1;
