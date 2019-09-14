@@ -55,7 +55,6 @@ std::string copy_chislo(const std::string& s, size_t& index, bool& dble) {
 
 std::string copy_kavichki(const std::string& s, size_t& index) {
   std::string x;
-  size_t k = 1;
   index++;
   bool flag = true;
   while (flag) {
@@ -91,7 +90,7 @@ std::string copy_kvadrat_skobka(const std::string& s, size_t& index) {
   return x;
 }
 
-std::string read_from_file(const string& path) {
+std::string read_from_file(const std::string& path) {
   std::string str;
   std::string line;
   std::ifstream fin(path);
@@ -104,7 +103,10 @@ std::string read_from_file(const string& path) {
   std::string m;
   size_t i = 0;
   while (i < str.length()) {
-    if (str[i] != ' ' && str[i] != '\t' && str[i] != '\n') m += str[i] i++;
+    if (str[i] != ' ' && str[i] != '\t' && str[i] != '\n') {
+      m += str[i];
+      i++;
+    }
   }
   return str;
 }
@@ -125,7 +127,6 @@ class Json {
     }
     if (str[0] != '{' && str[0] != '[') throw std::exception();
     if (str[0] == '{') {
-      size_t m = 0;
       size_t i = 0;
       i++;
       std::string key;
@@ -250,7 +251,7 @@ class Json {
   std::any& operator[](int index) { return ar[index]; }
   static Json parse(const std::string& s) { return Json(s); }
   static Json parseFile(const std::string& path_to_file) {
-    s = read_from_file(path_to_file);
+    std::string s = read_from_file(path_to_file);
     return Json(s)
   }
 
