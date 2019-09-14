@@ -4,11 +4,8 @@
 #include <header.hpp>
 
 TEST(circuits, first) {
-  Json a(
-      "{\"lastname\":\"Ivanov\",\"firstname\":\"Ivan\",\"age\":25,\"islegal\":"
-      "false,\"marks\":[4,5,5,5,2,3],\"address\":{\"city\":\"Moscow\","
-      "\"street\":\"Vozdvijenka\"}}");
-
+  Json a;
+  a.parseFile("file.txt");
   EXPECT_EQ(std::any_cast<std::string>(a["lastname"]), "Ivanov");
   EXPECT_EQ(std::any_cast<std::string>(a["firstname"]), "Ivan");
   EXPECT_EQ(std::any_cast<bool>(a["islegal"]), false);
