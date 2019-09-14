@@ -252,7 +252,7 @@ class Json {
   static Json parse(const std::string& s) { return Json(s); }
   static Json parseFile(const std::string& path_to_file) {
     std::string s = read_from_file(path_to_file);
-    return Json(s)
+    return Json(s);
   }
 
  private:
