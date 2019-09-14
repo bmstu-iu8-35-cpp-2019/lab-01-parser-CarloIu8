@@ -124,7 +124,6 @@ class Json {
         k++;
       }
     }
-    // cout << str;
     if (str[0] != '{' && str[0] != '[') throw std::exception();
     if (str[0] == '{') {
       size_t m = 0;
@@ -134,13 +133,13 @@ class Json {
       std::string x;
       x = str;
       while (i < x.length()) {
-        if (x[i] != '\"')
+        if (x[i] != '\"') {
           throw std::exception();
-        else {
+        } else {
           key = copy_kavichki(x, i);
-          if (x[i] != ':')
+          if (x[i] != ':') {
             throw std::exception();
-          else {
+          } else {
             i++;
             if (x[i] == '\"') {
               std::string info;
@@ -181,9 +180,9 @@ class Json {
             }
 
             if (str[i] != ',' && str[i] != '}' && str[i] != ']' &&
-                i != str.length())
+                i != str.length()) {
               throw std::exception();
-            else {
+            } else {
               i++;
               key = "";
               continue;
@@ -233,9 +232,9 @@ class Json {
             ar.push_back(Json(x));
           }
           if (str[i] != ',' && str[i] != '}' && str[i] != ']' &&
-              i != str.length())
+              i != str.length()) {
             throw std::exception();
-          else {
+          } else {
             i++;
             continue;
           }
@@ -243,9 +242,6 @@ class Json {
       }
     }
   }
-
-  // Метод возвращает true, если данный экземпляр содержит в себе JSON-массив.
-  // Иначе false.
   bool is_array() const { return ar.size(); }
 
   bool is_object() const { return data.size(); }
