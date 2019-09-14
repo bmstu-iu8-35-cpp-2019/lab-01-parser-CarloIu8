@@ -104,8 +104,7 @@ std::string read_from_file(const string& path) {
   std::string m;
   size_t i = 0;
   while (i < str.length()) {
-    if (str[i] != ' ' && str[i] != '	' && str[i] != '\n') m += str[i];
-    i++;
+    if (str[i] != ' ' && str[i] != '	' && str[i] != '\n') m += str[i] i++;
   }
   return str;
 }
@@ -113,7 +112,7 @@ std::string read_from_file(const string& path) {
 class Json {
  public:
   Json() = default;
-  Json(const std::string& s) {
+  explicit Json(const std::string& s) {
     std::string str;
     size_t k = 0;
     while (k < s.length()) {
