@@ -41,7 +41,7 @@ TEST(parse, first) {
             "Moscow");
 }
 
-TEST(konstrukt, first) {
+TEST(file, first) {
   Json a = Json::parseFile("../file.json");
   EXPECT_EQ(std::any_cast<std::string>(a["lastname"]), "Ivanov");
   EXPECT_EQ(std::any_cast<std::string>(a["firstname"]), "Ivan");
