@@ -89,7 +89,6 @@ std::string copy_kvadrat_skobka(const std::string& s, size_t& index) {
   index++;
   return x;
 }
-
 std::string read_from_file(const std::string& path) {
   std::string str;
   std::string line;
