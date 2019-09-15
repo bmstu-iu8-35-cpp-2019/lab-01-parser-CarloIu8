@@ -8,6 +8,7 @@
 #include <iostream>
 #include <map>
 #include <string>
+#include <streambuf>
 #include <vector>
 
 std::string copy_figure_skobka(const std::string& s, size_t& index) {
@@ -91,15 +92,35 @@ std::string copy_kvadrat_skobka(const std::string& s, size_t& index) {
 }
 
 std::string read_from_file(const std::string& path) {
-  std::string str;
-  std::string line;
+  //std::string str;
+  //std::string line;
   std::ifstream fin(path);
+<<<<<<< HEAD
   if (fin.is_open()) {
     while (getline(fin, line)) {
       str += line;
     }
   }
   fin.close();
+=======
+  
+  std::string str((std::istreambuf_iterator<char>(fin)),
+                   std::istreambuf_iterator<char>());
+  //if (fin.is_open()) {
+  //  while (getline(fin, line)) {
+  //    str += line;
+  //  }
+  //}
+  //fin.close();
+  std::string m;
+  size_t i = 0;
+  while (i < str.length()) {
+    if (str[i] != ' ' && str[i] != '\t' && str[i] != '\n') {
+      m += str[i];
+      i++;
+    }
+  }
+>>>>>>> 0e49a2c9158a043a2e01fd154bac5377a4de47de
   return str;
 }
 
