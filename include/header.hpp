@@ -100,14 +100,6 @@ std::string read_from_file(const std::string& path) {
     }
   }
   fin.close();
-  std::string m;
-  size_t i = 0;
-  while (i < str.length()) {
-    if (str[i] != ' ' && str[i] != '\t' && str[i] != '\n') {
-      m += str[i];
-      i++;
-    }
-  }
   return str;
 }
 
