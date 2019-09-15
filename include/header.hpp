@@ -103,6 +103,7 @@ std::string read_from_file(const std::string& path) {
   fin.close();
   return str;
 }
+
 class Json {
  public:
   Json() = default;
